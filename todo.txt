@@ -1,6 +1,7 @@
 1. Create class for x and o
 - all squares will have event listener
 - once clicked, will have x or o
+DONE
 
 2. Find way to alternate between the class being added
 - x after o after x, etc
