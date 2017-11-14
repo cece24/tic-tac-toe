@@ -12,95 +12,33 @@ document.addEventListener('DOMContentLoaded', function() {
   var square32 = document.querySelector('.s3-2');
   var square33 = document.querySelector('.s3-3');
 
+  var winningCombinations = [
+    [square11, square12, square13],
+    [square21, square22, square23],
+    [square31, square32, square33],
+    [square11, square21, square31],
+    [square12, square22, square32],
+    [square13, square23, square33],
+    [square11, square22, square33],
+    [square13, square22, square31]
+  ]
+
   function threeInRow(element) {
     return element === lastClassAdded;
   }
 
   function checkWinner() {
-    console.log('Checking for pattern');
-    var row1Classes = [];
-    var row1 = [square11, square12, square13];
+    winningCombinations.forEach(function(combination) {
+      var combinationClasses = [];
 
-    var row2Classes = [];
-    var row2 = [square21, square22, square23];
+      combination.forEach(function(square) {
+        combinationClasses.push(square.classList[1]);
+      })
 
-    var row3Classes = [];
-    var row3 = [square31, square32, square33];
-
-    var col1Classes = [];
-    var col1 = [square11, square21, square31];
-
-    var col2Classes = [];
-    var col2 = [square12, square22, square32];
-
-    var col3Classes = [];
-    var col3 = [square13, square23, square33];
-
-    var diagonal1Classes = [];
-    var diagonal1 = [square11, square22, square33];
-
-    var diagonal2Classes = [];
-    var diagonal2 = [square13, square22, square31];
-
-
-    row1.forEach(function(square) {
-      row1Classes.push(square.classList[1]);
+      if (combinationClasses.every(threeInRow)) {
+        showWinner(combination);
+      }
     })
-
-    row2.forEach(function(square) {
-      row2Classes.push(square.classList[1]);
-    })
-
-    row3.forEach(function(square) {
-      row3Classes.push(square.classList[1]);
-    })
-
-    col1.forEach(function(square) {
-      col1Classes.push(square.classList[1]);
-    })
-
-    col2.forEach(function(square) {
-      col2Classes.push(square.classList[1]);
-    })
-
-    col3.forEach(function(square) {
-      col3Classes.push(square.classList[1]);
-    })
-
-    diagonal1.forEach(function(square) {
-      diagonal1Classes.push(square.classList[1]);
-    })
-
-    diagonal2.forEach(function(square) {
-      diagonal2Classes.push(square.classList[1]);
-    })
-
-
-    if (row1Classes.every(threeInRow)) {
-      console.log('Winner First Row!');
-      showWinner(row1);
-    } else if (row2Classes.every(threeInRow)) {
-      console.log('Winner Second Row!');
-      showWinner(row2);
-    } else if (row3Classes.every(threeInRow)) {
-      console.log('Winner Third Row!');
-      showWinner(row3);
-    } else if (col1Classes.every(threeInRow)) {
-      console.log('Winner First Column!');
-      showWinner(col1);
-    } else if (col2Classes.every(threeInRow)) {
-      console.log('Winner Second Column!');
-      showWinner(col2);
-    } else if (col3Classes.every(threeInRow)) {
-      console.log('Winner Third Column!');
-      showWinner(col3);
-    } else if (diagonal1Classes.every(threeInRow)) {
-      console.log('Winner Diagonal 1!');
-      showWinner(diagonal1);
-    } else if (diagonal2Classes.every(threeInRow)) {
-      console.log('Winner Diagonal 2!');
-      showWinner(diagonal2);
-    }
   }
 
   function showWinner(winningSquares) {
