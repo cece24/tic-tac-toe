@@ -84,11 +84,17 @@ document.addEventListener('DOMContentLoaded', function() {
         square.classList.remove("cross");
       }
 
+      if (square.parentElement.classList.contains("winning-square")) {
+        square.parentElement.classList.remove("winning-square");
+      }
+
       square.classList.add("empty");
-      moves = 0;
-      lastClassAdded = "nought";
-      winner.innerHTML = "";
-      isThereAWinner = false;
     })
+
+    moves = 0;
+    lastClassAdded = "nought";
+    winner.innerHTML = "";
+    isThereAWinner = false;
   })
+  
 })
