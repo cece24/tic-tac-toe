@@ -46,3 +46,26 @@ h1 {
   left: 10px;
   content: "";
 }
+
+.cross {
+  background-color: black;
+  width: 11px;
+  height: 190px;
+  margin: auto;
+  margin-top: 10px;
+  position: relative;
+  -webkit-transform: rotate(45deg);
+     -moz-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+       -o-transform: rotate(45deg);
+}
+
+.cross::after {
+  background-color: black;
+  width: 190px;
+  height: 11px;
+  top: 89px;
+  left: -89.5px;
+  position: absolute;
+  content: "";
+}
