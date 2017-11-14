@@ -69,3 +69,9 @@ h1 {
   position: absolute;
   content: "";
 }
+
+.empty {
+  background-color: white;
+  width: 200px;
+  height: 200px;
+}
