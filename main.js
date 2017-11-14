@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var moves = 0;
   var reset = document.querySelector('.reset');
   var winner = document.querySelector('.winner');
+  var isThereAWinner = false;
   var square11 = document.querySelector('.s1-1');
   var square12 = document.querySelector('.s1-2');
   var square13 = document.querySelector('.s1-3');
@@ -39,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (combinationClasses.every(threeInRow)) {
         showWinner(combination);
+        isThereAWinner = true;
       }
     })
   }
@@ -67,9 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       moves++;
-      if (moves < 10) {
-        checkWinner();
-      } else if (moves === 9) {
+      checkWinner();
+      if (isThereAWinner !== true && moves === 9) {
         winner.innerHTML = "<h2>It's a draw!</h2>";
       }
     })
@@ -87,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
       moves = 0;
       lastClassAdded = "nought";
       winner.innerHTML = "";
+      isThereAWinner = false;
     })
   })
 })
