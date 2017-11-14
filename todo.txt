@@ -5,8 +5,16 @@ DONE
 
 2. Find way to alternate between the class being added
 - x after o after x, etc
+DONE
 
 3. Find way to determine winner
 - add row and col classes
 - match patterns of applied x classes or o classes
 - if a single pattern matches for x or for o's, show winning message
+
+- define function to check every time an x or o is added
+
+4. Draw
+- every class added is added to an array
+- once the array reaches 9 and no winner emerges
+- then it's a draw
