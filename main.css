@@ -1,0 +1,28 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+.board {
+  width: 608.9px;
+  height: 606px;
+  background-color: #2abe96;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.square {
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  display: inline-block;
+}
