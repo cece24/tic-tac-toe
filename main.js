@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   var squares = document.querySelectorAll('.square div');
   var lastClassAdded = "nought";
-  var allClassesAdded = [];
+  var moves = 0;
+  var reset = document.querySelector('.reset');
   var winner = document.querySelector('.winner');
   var square11 = document.querySelector('.s1-1');
   var square12 = document.querySelector('.s1-2');
@@ -65,12 +66,27 @@ document.addEventListener('DOMContentLoaded', function() {
         lastClassAdded = "nought";
       }
 
-      allClassesAdded.push(lastClassAdded);
-      if (allClassesAdded.length < 9) {
+      moves++;
+      if (moves < 10) {
         checkWinner();
-      } else {
+      } else if (moves === 9) {
         winner.innerHTML = "<h2>It's a draw!</h2>";
       }
+    })
+  })
+
+  reset.addEventListener('click', function() {
+    squares.forEach(function(square) {
+      if (square.classList.contains("nought")) {
+        square.classList.remove("nought");
+      } else if (square.classList.contains("cross")) {
+        square.classList.remove("cross");
+      }
+
+      square.classList.add("empty");
+      moves = 0;
+      lastClassAdded = "nought";
+      winner.innerHTML = "";
     })
   })
 })

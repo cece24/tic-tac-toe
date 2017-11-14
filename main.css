@@ -84,3 +84,18 @@ h1 {
 .winning-square {
   background-color: red;
 }
+
+.reset {
+  background-color: #2abe96;
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  margin: auto;
+  padding-top: 8px;
+}
+
+.reset h3 {
+  text-align: center;
+  color: white;
+  margin: 0;
+}
