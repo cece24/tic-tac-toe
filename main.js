@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
   var squares = document.querySelectorAll('.square div');
   var lastClassAdded = "nought";
+  var winner = document.querySelector('.winner');
   var square11 = document.querySelector('.s1-1');
   var square12 = document.querySelector('.s1-2');
   var square13 = document.querySelector('.s1-3');
@@ -77,20 +78,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (row1Classes.every(threeInRow)) {
       console.log('Winner First Row!');
+      showWinner();
     } else if (row2Classes.every(threeInRow)) {
       console.log('Winner Second Row!');
+      showWinner();
     } else if (row3Classes.every(threeInRow)) {
       console.log('Winner Third Row!');
+      showWinner();
     } else if (col1Classes.every(threeInRow)) {
       console.log('Winner First Column!');
+      showWinner();
     } else if (col2Classes.every(threeInRow)) {
       console.log('Winner Second Column!');
+      showWinner();
     } else if (col3Classes.every(threeInRow)) {
       console.log('Winner Third Column!');
+      showWinner();
     } else if (diagonal1Classes.every(threeInRow)) {
       console.log('Winner Diagonal 1!');
+      showWinner();
     } else if (diagonal2Classes.every(threeInRow)) {
       console.log('Winner Diagonal 2!');
+      showWinner();
+    }
+  }
+
+  function showWinner() {
+    if (lastClassAdded === "nought") {
+      winner.innerHTML = "<h2>The winner is noughts!</h2>";
+    } else {
+      winner.innerHTML = "<h2>The winner is crosses!</h2>";
     }
   }
 
