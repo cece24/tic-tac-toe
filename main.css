@@ -80,3 +80,7 @@ h1 {
   text-align: center;
   color: blue;
 }
+
+.winning-square {
+  background-color: red;
+}

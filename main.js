@@ -78,32 +78,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (row1Classes.every(threeInRow)) {
       console.log('Winner First Row!');
-      showWinner();
+      showWinner(row1);
     } else if (row2Classes.every(threeInRow)) {
       console.log('Winner Second Row!');
-      showWinner();
+      showWinner(row2);
     } else if (row3Classes.every(threeInRow)) {
       console.log('Winner Third Row!');
-      showWinner();
+      showWinner(row3);
     } else if (col1Classes.every(threeInRow)) {
       console.log('Winner First Column!');
-      showWinner();
+      showWinner(col1);
     } else if (col2Classes.every(threeInRow)) {
       console.log('Winner Second Column!');
-      showWinner();
+      showWinner(col2);
     } else if (col3Classes.every(threeInRow)) {
       console.log('Winner Third Column!');
-      showWinner();
+      showWinner(col3);
     } else if (diagonal1Classes.every(threeInRow)) {
       console.log('Winner Diagonal 1!');
-      showWinner();
+      showWinner(diagonal1);
     } else if (diagonal2Classes.every(threeInRow)) {
       console.log('Winner Diagonal 2!');
-      showWinner();
+      showWinner(diagonal2);
     }
   }
 
-  function showWinner() {
+  function showWinner(winningSquares) {
+    winningSquares.forEach(function(square) {
+      square.parentElement.classList.add('winning-square');
+    })
+
     if (lastClassAdded === "nought") {
       winner.innerHTML = "<h2>The winner is noughts!</h2>";
     } else {
